@@ -53,6 +53,6 @@ class Referrals(models.Model):
     referrals_id=models.IntegerField()
     DisplayFields=['user_id','referrals_id']
     SearchFields=['user_id','referrals_id'] 
-
+    
     
 

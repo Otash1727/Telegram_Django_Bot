@@ -59,6 +59,3 @@ async def switch_courses(query:InlineQuery):
     dd=query_courses(query)
     results=[InlineQueryResultArticle(description=f"{dd.description}", title=f"{dd.title}", id=f'{dd.courses_id}',thumbnail_url=dd.logo_url,thumbnail_height=1,thumbnail_width=1,input_message_content= InputTextMessageContent(message_text=f"<i><b>{dd.title.upper()}\nDescription:{dd.description.upper()}</b></i>\n<b>Price:{dd.price}</b>\n<b>Durations:{dd.duration}</b>",parse_mode=ParseMode.HTML))]
     await query.answer(results=results)
-
-
-

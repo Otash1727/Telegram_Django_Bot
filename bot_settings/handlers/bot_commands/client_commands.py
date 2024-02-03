@@ -41,8 +41,12 @@ async def courses_command(message:Message):
 @router.message(Command('referral'))
 async def deep_link(message:Message):
     if message.chat.type=='private':
+        data=referral_show(message=message.from_user.id)
+        ref_btn=InlineKeyboardBuilder()
+        for dataes in data:       
+            ref_btn.row(InlineKeyboardButton(text='Show referrals',switch_inline_query_current_chat=f'&{dataes.user_id}'))
         ref_count=referral_count(message=message.from_user.id)
-        tt=await bot.send_message(message.from_user.id, text=f"ID:{message.from_user.id}\n{BOT_NICKNAME}?start={message.from_user.id}\nQuantity referral-{ref_count.count()}")
+        tt=await bot.send_message(message.from_user.id, text=f"ID:{message.from_user.id}\n{BOT_NICKNAME}?start={message.from_user.id}\nQuantity referral-{ref_count.count()}",reply_markup=ref_btn.as_markup())
         
 
 #command settings

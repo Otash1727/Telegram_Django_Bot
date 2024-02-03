@@ -30,6 +30,13 @@ def referral_count(message):
     data=Referrals.objects.filter(referrals_id=message)
     return data
 
+def referral_show(message):
+    try:
+        data=Referrals.objects.filter(referrals_id=message)
+        return  data
+    except ObjectDoesNotExist:
+        pass    
+
 
     
 
